@@ -7,6 +7,7 @@ import Avatar from "../Avatar";
 import MenuItem from "./MenuItem";
 import {signOut} from "next-auth/react";
 import { SafeUser } from "@/app/types";
+import useRentModal from "@/app/hooks/useRentModal";
 
 interface UserMenuProps {
     currentUser?: SafeUser | null;
@@ -23,12 +24,21 @@ const UserMenu:React.FC<UserMenuProps> = ({
 
     const registerModal = useRegisterModal();
     const loginModal = useLoginModal();
+    const rentModal = useRentModal();
+
+    const onRent = useCallback(() =>{
+         if(!currentUser){
+            return loginModal.onOpen();
+         }
+
+         rentModal.onOpen();
+    },[currentUser, loginModal, rentModal])
 
   return (
     <div className="relative">
         <div className="flex flex-row gap-3 items-center">
             <div 
-                onClick={() =>{}}
+                onClick={onRent}
                 className="
                     hidden
                     md:block
@@ -101,7 +111,7 @@ const UserMenu:React.FC<UserMenuProps> = ({
                                 label="My properties"
                             />
                             <MenuItem 
-                                onClick={() => {}}
+                                onClick={() => {rentModal.onOpen()}}
                                 label="Become a host"
                             />
                             <MenuItem 
