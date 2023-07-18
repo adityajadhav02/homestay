@@ -1,21 +1,21 @@
 'use client';
 
-import axios from "axios";
-import { useRouter } from "next/navigation";
-import { useCallback, useState } from "react";
-import toast from "react-hot-toast";
+import { Reservation } from "@prisma/client";
+import {toast} from 'react-hot-toast';
+import axios from 'axios';
+import { useState, useCallback } from 'react';
 import Container from "../components/Container";
 import Heading from "../components/Heading";
-import ListingCard from "../components/listings/ListingCard";
 import { SafeReservation, SafeUser } from "../types";
+import { useRouter } from "next/navigation";
+import ListingCard from "../components/listings/ListingCard";
 
-interface TripsClientProps {
+interface ReservationsClientProps {
     reservations: SafeReservation[];
     currentUser?: SafeUser | null;
 }
-
-const TripsClient:React.FC<TripsClientProps> = ({
-    reservations, 
+const ReservationsClient: React.FC<ReservationsClientProps> = ({
+    reservations,
     currentUser
 }) => {
 
@@ -30,19 +30,19 @@ const TripsClient:React.FC<TripsClientProps> = ({
             toast.success('Reservation cancelled');
             router.refresh();
         })
-        .catch((err) =>{
+        .catch(() => {
             toast.error('Something went wrong');
         })
-        .finally(() =>{
+        .finally(() => {
             setDeletingId('');
         })
-
     }, [router]);
+
   return (
     <Container>
-        <Heading
-            title="My Trips"
-            subtitle="Places where I have been to or will be going to"
+        <Heading 
+            title="Reservations"
+            subtitle="Bookings on my properties."
         />
         <div 
             className="
@@ -56,7 +56,7 @@ const TripsClient:React.FC<TripsClientProps> = ({
             2xl:grid-cols-6
             gap-8
             "
-        >
+            >
             {reservations.map((reservation: any) => (
             <ListingCard
                 key={reservation.id}
@@ -65,14 +65,13 @@ const TripsClient:React.FC<TripsClientProps> = ({
                 actionId={reservation.id}
                 onAction={onCancel}
                 disabled={deletingId === reservation.id}
-                actionLabel="Cancel reservation"
+                actionLabel="Cancel guest reservation"
                 currentUser={currentUser}
             />
             ))}
-        </div>
+      </div>
     </Container>
-
   )
 }
 
-export default TripsClient
+export default ReservationsClient
