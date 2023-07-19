@@ -10,10 +10,10 @@ const Logo = () => {
         <Image 
             onClick={() => router.push('/')}
             alt='logo'
-            src = '/images/logo1.png'
+            src = '/images/logo2.png'
             className="cursor-pointer md:block" 
-            height='35'
-            width='35'
+            height='40'
+            width='40'
          />
          homestay
         </div>
