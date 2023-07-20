@@ -1,6 +1,6 @@
 # HomeStay
 
-
+![](https://github.com/adityajadhav02/homestay/blob/main/screenshot.png)
 
 HomeStay is a property listing web application built using Next.js, MongoDB, Tailwind CSS, and Prisma. It allows users to book accommodations or list their own properties for rental, providing a seamless and intuitive experience similar to popular platforms like Airbnb. Users can register using email or Google accounts, and the application offers various filters to help users find accommodations that match their specific needs.
 
