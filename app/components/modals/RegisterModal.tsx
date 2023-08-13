@@ -92,13 +92,13 @@ const RegisterModal = () => {
             <div className="flex flex-row gap-2">
                 <Button 
                     outline
-                    label="Continue with Google"
+                    label="Google"
                     icon={FcGoogle}
                     onClick={() => signIn('google')}
                 />
                 <Button 
                     outline
-                    label="Continue with GitHub"
+                    label="GitHub"
                     icon={AiFillGithub}
                     onClick={() => signIn('github')}
                 />
