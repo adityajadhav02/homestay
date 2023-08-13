@@ -12,8 +12,8 @@ const Logo = () => {
             alt='logo'
             src = '/images/logo2.png'
             className="cursor-pointer md:block" 
-            height='40'
-            width='40'
+            height='25'
+            width='25'
          />
          homestay
         </div>
