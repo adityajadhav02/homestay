@@ -35,11 +35,14 @@ export default async function RootLayout({
     <html lang="en">
       <body className={font.className}>
             <Script
+              id='script-1'
               strategy="lazyOnload"
               src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}
             />
 
-            <Script strategy="lazyOnload">
+            <Script 
+            id='script-2'
+            strategy="lazyOnload">
               {`
                           window.dataLayer = window.dataLayer || [];
                           function gtag(){dataLayer.push(arguments);}
