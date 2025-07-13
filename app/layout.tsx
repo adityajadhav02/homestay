@@ -61,6 +61,10 @@ export default async function RootLayout({
           <div className='pb-20 pt-28'>
             {children}
           </div>
+          <div className="w-full text-center text-gray-500">
+          <span>Made by</span>
+          <span className="text-rose-500"> <a href="https://github.com/adityajadhav02">@adityajadhav02</a></span>
+        </div>
           <Analytics />
       </body>
     </html>
